@@ -1,0 +1,12 @@
+SELECT SUM(points) as points, team.name as team
+FROM league_history_boxplayer box
+/* Use team names */
+JOIN league_history_team team ON team.id=box.team_id
+/* 2019 draft picks */
+WHERE player_id IN (
+    SELECT player_id
+    FROM league_history_draftpick
+    WHERE league_year_id = 7)
+/* 2019 box scores */
+AND box.league_year_id = 7
+GROUP BY team.name;
