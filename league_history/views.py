@@ -25,5 +25,8 @@ def is_picked(draft_picks, player_id, current_pick):
     except ObjectDoesNotExist:
         return False
 
+    if pick.is_keeper:
+        return True
+
     pick_num = 10 * (pick.round_num - 1) + pick.round_pick
     return pick_num < current_pick

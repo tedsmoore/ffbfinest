@@ -27,7 +27,7 @@ class PlayerAdmin(admin.ModelAdmin):
 
 @admin.register(DraftPick)
 class DraftPickAdmin(admin.ModelAdmin):
-    list_display = ['id', 'league_year_id', 'name', 'round_num', 'round_pick', 'team']
+    list_display = ['id', 'name', 'league_year_id', 'round_num', 'round_pick', 'team']
     search_fields = ['id', 'league_year_id']
     pass
 
