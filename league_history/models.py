@@ -97,6 +97,13 @@ class DraftPick(models.Model):
     round_pick = models.IntegerField()
     is_keeper = models.BooleanField()
 
+    @property
+    def name(self):
+        return f"{self.player.name}"
+
+    def __str__(self):
+        return self.name
+
 
 class BoxPlayer(models.Model):
     player = models.ForeignKey(Player, related_name='box_scores', on_delete=models.CASCADE)

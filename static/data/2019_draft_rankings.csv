@@ -3,7 +3,7 @@
 2,Ezekiel,Elliott,DAL,RB,3051392
 3,Christian,McCaffrey,CAR,RB,3117251
 4,Alvin,Kamara,NO,RB,3054850
-5,David,Johnson,ARI,RB,12506
+5,David,Johnson,ARI,RB,2508176
 6,Davante,Adams,GB,WR,16800
 7,DeAndre,Hopkins,HOU,WR,15795
 8,Todd,Gurley II,LAR,RB,2977644
@@ -57,7 +57,7 @@
 56,Evan,Engram,NYG,TE,3051876
 57,Melvin,Gordon,LAC,RB,2576434
 58,A.J.,Green,CIN,WR,13983
-59,Duke,Johnson Jr.,HOU,RB,#N/A
+59,Duke,Johnson Jr.,HOU,RB,2969962
 60,Alshon,Jeffery,PHI,WR,14912
 61,Mike,Williams,LAC,WR,3045138
 62,Emmanuel,Sanders,DEN,WR,13295
@@ -78,7 +78,7 @@
 77,Matt,Ryan,ATL,QB,11237
 78,Sterling,Shepard,NYG,WR,2976592
 79,Sammy,Watkins,KC,WR,16725
-80,Allen,Robinson,CHI,WR,#N/A
+80,Allen,Robinson,CHI,WR,16799
 81,Tyrell,Williams,OAK,WR,2587819
 82,Kyler,Murray,ARI,QB,3917315
 83,Josh,Gordon,NE,WR,15705
@@ -99,7 +99,7 @@
 98,Cam,Newton,CAR,QB,13994
 99,Marvin,Jones Jr.,DET,WR,15072
 100,Marquez,Valdes-Scantling,GB,WR,3051738
-101,Darrell,Henderson,LAR,RB,#N/A
+101,Darrell,Henderson,LAR,RB,4039359
 102,Jared,Goff,LAR,QB,3046779
 103,Larry,Fitzgerald,ARI,WR,5528
 104,Jamison,Crowder,NYJ,WR,2576716
@@ -117,7 +117,7 @@
 116,Carlos,Hyde,HOU,RB,16777
 117,Darren,Waller,OAK,TE,2576925
 118,Peyton,Barber,TB,RB,3051902
-119,Ronald,Jones,TB,RB,#N/A
+119,Ronald,Jones,TB,RB,3912550
 120,Courtland,Sutton,DEN,WR,3128429
 121,Dion,Lewis,TEN,RB,14198
 122,Greg,Olsen,CAR,TE,10475
@@ -137,17 +137,17 @@
 136,Devin,Funchess,IND,WR,2977609
 137,Justice,Hill,BAL,RB,4038441
 138,Rashard,Higgins,CLE,WR,3042910
-139,Mohamed,Sanu,ATL,WR,#N/A
+139,Mohamed,Sanu,ATL,WR,14922
 140,Marquise,Brown,BAL,WR,4241372
-141,Chicago,Bears,CHI,DST,#N/A
+141,Bears,D/ST,CHI,DST,-16003
 142,Rams,D/ST,LAR,DST,-16014
-143,Jacksonville,Jaguars,JAC,DST,#N/A
-144,Minnesota,Vikings,MIN,DST,#N/A
+143,Jaguars,D/ST,JAC,DST,-16030
+144,Vikings,D/ST,MIN,DST,-16016
 145,Chargers,D/ST,LAC,DST,-16024
-146,Houston,Texans,HOU,DST,#N/A
+146,Texans,D/ST,HOU,DST,-16034
 147,Patriots,D/ST,NE,DST,-16017
-148,Indianapolis,Colts,IND,DST,#N/A
-149,Buffalo,Bills,BUF,DST,#N/A
+148,Colts,D/ST,IND,DST,-16011
+149,Bills,D/ST,BUF,DST,-16002
 150,Saints,D/ST,NO,DST,-16018
 151,Greg,Zuerlein,LAR,K,14993
 152,Stephen,Gostkowski,NE,K,9704
@@ -172,7 +172,7 @@
 171,Darwin,Thompson,KC,RB,4361606
 172,James,Washington,PIT,WR,3122449
 173,Adam,Humphries,TEN,WR,2576491
-174,Phillip,Dorsett,NE,WR,#N/A
+174,Phillip,Dorsett,NE,WR,2579604
 175,DeVante,Parker,MIA,WR,2576623
 176,Miles,Boykin,BAL,WR,3932423
 177,Giovani,Bernard,CIN,RB,15826
@@ -196,6 +196,6 @@
 195,Jimmy,Garoppolo,SF,QB,16760
 196,T.J.,Yeldon,BUF,RB,2976516
 197,Adrian,Peterson,WAS,RB,10452
-198,C.J.,Andeson,DET,RB,#N/A
+198,C.J.,Andeson,DET,RB,16040
 199,Jalen,Richard,OAK,RB,2972091
 200,Chase,Edmonds,ARI,RB,3119195

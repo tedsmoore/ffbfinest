@@ -10,11 +10,15 @@
     <td>#</td>
     <td>Player</td>
     <td>Team</td>
-    <td>Keeper</td>
+    <td>Drafted By</td>
 </tr>
 
 {% for pick in picks %}
+    {% if pick.selected %}
+    <tr style="text-decoration-line: line-through">
+    {% else %}
     <tr>
+    {% endif %}
         <td>{{ pick.num }}</td>
         <td>{{ pick.player }}</td>
         <td>{{ pick.selected }}</td>
