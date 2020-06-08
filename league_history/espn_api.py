@@ -131,7 +131,7 @@ def league_class_to_file():
     for year in range(2013, 2020):
         ly = get_league_local_or_api(135555, year)
         ly_json = jsonpickle.encode(ly)
-        with open(f'../data/espnffbf_{year}_league.json', 'w') as f:
+        with open(f'../../static/data/espnffbf_{year}_league.json', 'w') as f:
             json.dump(ly_json, f)
 
 
