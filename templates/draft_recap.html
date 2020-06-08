@@ -7,10 +7,10 @@
 <table class="w3-striped">
 
 <tr>
-    <td>#</td>
+    <td>Rank</td>
     <td>Player</td>
     <td>Team</td>
-    <td>Drafted By</td>
+    <td>Keeper?</td>
 </tr>
 
 {% for pick in picks %}
@@ -21,8 +21,8 @@
     {% endif %}
         <td>{{ pick.num }}</td>
         <td>{{ pick.player }}</td>
-        <td>{{ pick.selected }}</td>
-{#        <td>{% if pick.is_keeper %}KEEPER{% endif %}</td>#}
+        <td>{% if pick.selected %}{{ pick.drafted_by }}{% endif %}</td>
+        <td>{{ pick.keeper }}</td>
     </tr>
 {% endfor %}
 
