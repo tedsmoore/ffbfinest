@@ -21,4 +21,3 @@ class TeamAdmin(admin.ModelAdmin):
 # @admin.register(ProTeam)
 # class ProTeamAdmin(admin.ModelAdmin):
 #     pass
-
