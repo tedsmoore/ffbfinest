@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from .models import DraftPick, Team, Player
 
+
 def index(request):
     draft_picks = pd.read_csv('data/2019_draft_rankings.csv')
     picks = [
