@@ -1,0 +1,23 @@
+{
+  "name": "FFBFinest",
+  "description": "Fantasy Football's Finest Analytics",
+  "addons": [{
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "sh test"
+      },
+      "formation": {
+          "test": {
+            "quantity": 1,
+            "size": "free"
+          }
+      }
+    }
+  }
+}
