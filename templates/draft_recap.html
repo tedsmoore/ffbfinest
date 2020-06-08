@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="w3-container w3-margin">
+
+<table class="w3-striped">
+
+<tr>
+    <td>#</td>
+    <td>Player</td>
+    <td>Team</td>
+    <td>Keeper</td>
+</tr>
+
+{% for pick in picks %}
+    <tr>
+        <td>{{ pick.num }}</td>
+        <td>{{ pick.player }}</td>
+        <td>{{ pick.selected }}</td>
+{#        <td>{% if pick.is_keeper %}KEEPER{% endif %}</td>#}
+    </tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock content %}
