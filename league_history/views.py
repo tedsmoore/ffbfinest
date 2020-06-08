@@ -11,6 +11,7 @@ def index(request):
             'num': idx,
             'player': pick['PLAYER'],
             'selected': Player.objects.get(player=pick['PLAYER'])
-         } for idx, pick in draft_picks.iterrows()
+        }
+        for idx, pick in draft_picks.iterrows()
     ]
     return render(request, 'draft_recap.html', locals())
