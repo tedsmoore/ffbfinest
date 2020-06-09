@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    re_path(r'^draft_sim/(?P<pick_id>\d+)', views.index, name='draft_sim')
+    re_path(r'^draft_sim/(?P<pick_id>\d+)', views.draft_sim, name='draft_sim')
 ]
