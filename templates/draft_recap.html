@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<div class="w3-container w3-margin">
+<div class="w3-container w3-margin w3-cell">
 
-<table class="w3-striped">
+<table class="w3-striped w3-border w3-left-align">
 
 <tr>
-    <td>Rank</td>
-    <td>Player</td>
-    <td>Team</td>
-    <td>Keeper?</td>
+    <th>Rank</th>
+    <th>Player</th>
+    <th>Team</th>
+    <th>Keeper?</th>
 </tr>
 
 {% for pick in picks %}
@@ -23,6 +23,27 @@
         <td>{{ pick.player }}</td>
         <td>{% if pick.selected %}{{ pick.drafted_by }}{% endif %}</td>
         <td>{{ pick.keeper }}</td>
+    </tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+{# Current team draft order #}
+
+<div class="w3-container w3-margin w3-cell">
+
+<table class="w3-striped w3-border">
+
+<th>ON THE CLOCK: <br/>{{ current_team.on_the_clock }}</th>
+
+{% for player in current_team.current_roster %}
+    <tr>
+        <td>{{ player.name }}</td>
+        <td>{{ player.player.position }}</td>
     </tr>
 {% endfor %}
 
