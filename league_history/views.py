@@ -6,6 +6,10 @@ from django.db.models import Q
 from .models import DraftPick, Team, Player
 
 
+def index(request):
+    return render(request, 'index.html', locals())
+
+
 def draft_sim(request, pick_id):
     player_ranks = pd.read_csv('static/data/2019_draft_rankings.csv')
     draft_picks = DraftPick.objects.filter(league_year=7)
