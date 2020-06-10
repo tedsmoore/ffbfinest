@@ -3,7 +3,7 @@ import json
 import requests
 
 import jsonpickle
-from ff_espn_api import League
+from espn_api.football import League
 
 from .models import LeagueYear, Team, Owner, Matchup, Player, ProTeam, DraftPick, BoxPlayer
 
@@ -125,7 +125,83 @@ def draft_to_db(lg, ly):
     return
 
 
-# Methods used to populate the db with histroical data
+def box_player_to_db(lg):
+    pos_map = {
+        0: 'QB',
+        1: 'TQB',
+        2: 'RB',
+        3: 'RB/WR',
+        4: 'WR',
+        5: 'WR/TE',
+        6: 'TE',
+        7: 'OP',
+        8: 'DT',
+        9: 'DE',
+        10: 'LB',
+        11: 'DL',
+        12: 'CB',
+        13: 'S',
+        14: 'DB',
+        15: 'DP',
+        16: 'D/ST',
+        17: 'K',
+        18: 'P',
+        19: 'HC',
+        20: 'BE',
+        21: 'IR',
+        22: '',
+        23: 'RB/WR/TE',
+        24: 'ER',
+        25: 'Rookie',
+        'QB': 0,
+        'RB': 2,
+        'WR': 4,
+        'TE': 6,
+        'D/ST': 16,
+        'K': 17,
+        'FLEX': 23,
+        'RB/WR/TE': 23,
+        'BE': 20,
+        'IR': 21,
+        'FA': None
+    }
+
+    for week in range(1, 17):
+        box_scores = lg.box_scores(week)
+        free_agents = [(None, fa) for fa in lg.free_agents(week, size=1000)]
+        players = [(b.home_team.team_id, p) for b in box_scores for p in b.home_lineup] + \
+                  [(b.away_team.team_id, p) for b in box_scores for p in b.away_lineup] + free_agents
+
+        for player in players:
+            if player[1].proTeam == 'FA':
+                pro_team = None
+            else:
+                pro_team = ProTeam.objects.get(abbrev=player[1].proTeam)
+
+            if player[1].pro_opponent == 'None':
+                pro_opponent = None
+            else:
+                pro_opponent = ProTeam.objects.get(abbrev=player[1].pro_opponent)
+
+            try:
+                team = Team.objects.get(league_year__year=lg.year, team_id=player[0])
+            except Team.DoesNotExist:
+                team = None
+
+            BoxPlayer.objects.get_or_create(
+                player=Player.objects.get(id=player[1].playerId),
+                team=team,
+                league_year=LeagueYear.objects.get(year=2019),
+                week=week,
+                lineup_position=pos_map.get(player[1].slot_position, None),
+                points=player[1].points,
+                proj_points=player[1].projected_points,
+                pro_team=pro_team,
+                pro_opponent=pro_opponent
+            )
+
+
+# Methods used to populate the db with historical data
 
 def league_class_to_file():
     for year in range(2013, 2020):
@@ -243,79 +319,3 @@ def box_player_2018(player_data_18):
     #                 'proj_points': proj,
     #             }
     #         )
-
-
-def box_player_to_db(lg):
-    pos_map = {
-        0: 'QB',
-        1: 'TQB',
-        2: 'RB',
-        3: 'RB/WR',
-        4: 'WR',
-        5: 'WR/TE',
-        6: 'TE',
-        7: 'OP',
-        8: 'DT',
-        9: 'DE',
-        10: 'LB',
-        11: 'DL',
-        12: 'CB',
-        13: 'S',
-        14: 'DB',
-        15: 'DP',
-        16: 'D/ST',
-        17: 'K',
-        18: 'P',
-        19: 'HC',
-        20: 'BE',
-        21: 'IR',
-        22: '',
-        23: 'RB/WR/TE',
-        24: 'ER',
-        25: 'Rookie',
-        'QB': 0,
-        'RB': 2,
-        'WR': 4,
-        'TE': 6,
-        'D/ST': 16,
-        'K': 17,
-        'FLEX': 23,
-        'RB/WR/TE': 23,
-        'BE': 20,
-        'IR': 21,
-        'FA': None
-    }
-
-    for week in range(1, 17):
-        box_scores = lg.box_scores(week)
-        free_agents = [(None, fa) for fa in lg.free_agents(week, size=1000)]
-        players = [(b.home_team.team_id, p) for b in box_scores for p in b.home_lineup] + \
-                  [(b.away_team.team_id, p) for b in box_scores for p in b.away_lineup] + free_agents
-
-        for player in players:
-            if player[1].proTeam == 'FA':
-                pro_team = None
-            else:
-                pro_team = ProTeam.objects.get(abbrev=player[1].proTeam)
-
-            if player[1].pro_opponent == 'None':
-                pro_opponent = None
-            else:
-                pro_opponent = ProTeam.objects.get(abbrev=player[1].pro_opponent)
-
-            try:
-                team = Team.objects.get(league_year__year=lg.year, team_id=player[0])
-            except Team.DoesNotExist:
-                team = None
-
-            BoxPlayer.objects.get_or_create(
-                player=Player.objects.get(id=player[1].playerId),
-                team=team,
-                league_year=LeagueYear.objects.get(year=2019),
-                week=week,
-                lineup_position=pos_map.get(player[1].slot_position, None),
-                points=player[1].points,
-                proj_points=player[1].projected_points,
-                pro_team=pro_team,
-                pro_opponent=pro_opponent
-            )

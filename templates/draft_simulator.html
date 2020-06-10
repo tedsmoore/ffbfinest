@@ -11,6 +11,8 @@
     <th>Player</th>
     <th>Team</th>
     <th>Keeper?</th>
+{#    <th>Avg Pts</th>#}
+    <th>Pos Rk</th>
 </tr>
 
 {% for pick in picks %}
@@ -23,6 +25,8 @@
         <td>{{ pick.player }}</td>
         <td>{% if pick.selected %}{{ pick.drafted_by }}{% endif %}</td>
         <td>{{ pick.keeper }}</td>
+{#        <td>{{ pick.avg_points }}</td>#}
+        <td>{{ pick.pos_rank }}</td>
     </tr>
 {% endfor %}
 
